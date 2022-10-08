@@ -16,7 +16,7 @@ public class search extends JFrame {
     static class searchFrame implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            new search();
+            new search(true);
         }
     }
 
@@ -42,7 +42,7 @@ public class search extends JFrame {
     static Boolean caseS = false;
 
 
-    public search(){
+    public search(boolean isVisible){
         searchBox = new JFrame();
         searchBox.setTitle("Search");
         searchBox.setSize(400, 200);
@@ -109,7 +109,7 @@ public class search extends JFrame {
         searchBox.add(upper, BorderLayout.NORTH);
         searchBox.add(lower);
         searchBox.setResizable(false);
-        searchBox.setVisible(true);
+        searchBox.setVisible(isVisible);
 
 
         //screen parameter

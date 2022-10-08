@@ -10,7 +10,7 @@ import java.awt.event.*;
 public class notepad extends JFrame{
 
     public static void main(String[] args) {
-        notepad notepad = new notepad();
+        notepad notepad = new notepad(true);
         notepad.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
     
@@ -71,7 +71,7 @@ public class notepad extends JFrame{
 
 
 
-    public notepad() {
+    public notepad(boolean isVisible) {
 
         mainFrame = new JFrame("Notepad--");
         mainFrame.setSize(600,600);
@@ -295,7 +295,7 @@ public class notepad extends JFrame{
         int height = mainFrame.getHeight();
         int width = mainFrame.getWidth();
         mainFrame.setLocation(miniFunctions.getScreenWidth()/2-width/2, miniFunctions.getScreenHeight()/2-height/2);
-        mainFrame.setVisible(true);
+        mainFrame.setVisible(isVisible);
         mainFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 
