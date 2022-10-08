@@ -12,7 +12,8 @@ class DragAndDrop extends TransferHandler {
     @Override
     public boolean importData(JComponent comp, Transferable t) {
         try {
-            Object o = t.getTransferData(DataFlavor.javaFileListFlavor);
+            DataFlavor a = new DataFlavor();
+            Object o = t.getTransferData(a.javaFileListFlavor);
 
             String filepath = o.toString();
             if (filepath.startsWith("[")) {
@@ -34,29 +35,27 @@ class DragAndDrop extends TransferHandler {
             InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(filepath), StandardCharsets.UTF_8);
             BufferedReader br = new BufferedReader(inputStreamReader);
             StringBuilder sb = new StringBuilder();
-            String line = br.readLine();
-
 
 
 
             if (file.getName().endsWith(".odt")){
                 String content = miniFunctions.readODTContents(file.getPath());
             }else if (file.getName().endsWith(".rtf")){
-                String content = miniFunctions.ReadRtf(file.getPath());
+                miniFunctions.ReadRtf(file.getPath());
 
             }else if (file.getName().endsWith(".py") || file.getName().endsWith(".java") || file.getName().endsWith(".cpp")){
 
-                String content = miniFunctions.read(file);
+                miniFunctions.read(file);
 
                 notepad.mainFrame.setTitle(fileName + " - Notepad--");
-                notepad.input.setText(content);
+
 
             }else if(file.getName().endsWith(".txt") ){
-
+                String line = br.readLine();
                 while (line != null) {
-                    sb.append(line);
-                    sb.append(System.lineSeparator());
-                    line = br.readLine();
+                 sb.append(line);
+                 sb.append(System.lineSeparator());
+                 line = br.readLine();
                 }
                 String content = sb.toString();
 
@@ -65,6 +64,7 @@ class DragAndDrop extends TransferHandler {
 
             }else{
                 JOptionPane.showMessageDialog(null, "This file may not open correctly as its format is not supported.");
+                String line = br.readLine();
                 while (line != null) {
                     sb.append(line);
                     sb.append(System.lineSeparator());
@@ -75,6 +75,17 @@ class DragAndDrop extends TransferHandler {
                 notepad.mainFrame.setTitle(fileName + " - Notepad--");
                 notepad.input.setText(content);
             }
+
+//            String line = br.readLine();
+//            while (line != null) {
+//                sb.append(line);
+//                sb.append(System.lineSeparator());
+//                line = br.readLine();
+//            }
+//            String content = sb.toString();
+//
+//            notepad.mainFrame.setTitle(fileName + " - Notepad--");
+//            notepad.input.setText(content);
 
 
 
@@ -87,8 +98,8 @@ class DragAndDrop extends TransferHandler {
     }
     @Override
     public boolean canImport(JComponent comp, DataFlavor[] flavors) {
-        for (int i = 0; i < flavors.length; i++) {
-            if (DataFlavor.javaFileListFlavor.equals(flavors[i])) {
+        for (DataFlavor flavor : flavors) {
+            if (DataFlavor.javaFileListFlavor.equals(flavor)) {
                 return true;
             }
         }
