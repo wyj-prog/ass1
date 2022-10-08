@@ -15,7 +15,7 @@ stages:
         mavenVersion: 3.3.9
         # 构建命令
         commands:
-          - mvn -version
+          - mvn test clean
         #   - mvn -B clean package -Dmaven.test.skip=true
         # 非必填字段，开启后表示将构建产物暂存，但不会上传到制品库中，7天后自动清除
         artifacts:
