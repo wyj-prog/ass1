@@ -8,7 +8,7 @@
 
 #### 1. Contributors
 
-Member I : Zheng Wang, ID:
+Member I : Zheng Wang, ID: 21012737
 
 Member II : William Wu, ID: 21012743
 
@@ -35,10 +35,54 @@ Member II : William Wu, ID: 21012743
 
 Member I, Zheng Wang
 
+1. ID: 4f2d6cf5e433048c7b446c02778e73ab67c61343
 
+   Implemented the main Frame, then add functions to display time&data and current row&column.
 
+2. ID: 1b4e652e4e50d35ea825bb19edff9e8b97fea0ae
 
+   Optimize the display of the status bar. Add a function to hide/show it.
 
+3. ID: 29a8422fb99bf26ab9420df10077ad0984733cf8
+
+   Implemented popMenu, it's a little hard to deal with the position when it pops.
+   Center the frames when they show up.
+
+4. ID: bc6809e18a972ddd29051f23ae251b5cb59d2a90
+
+   Finally implemented the search function.
+
+5. ID: 8a3ace75f92d0332e2fc1903d9c253aa1a34447c
+
+   Fix bugs in the search method, and add the function to count words.
+
+6. ID: 9ac79886d0323fe508924dbf83226bde985b404d
+
+   Add the function to adjust the font-size of JTextPane (Ctrl + wheel-up/down)
+
+7. ID: a1fefbaea50e5e5215852a73f911f58b5cf27c2b
+
+   Implemented the function to read source code files, though it is actually elementary.
+   A really challenging task!
+
+8. ID: ea1e61c281ef6f104cbd5c4fe1578de8b18bd2db
+
+   Dramatically, I replaced JTextArea with JTextPane when implementing the function to read source code.
+   And this led to a disaster! Functions to show the current row&column and search by keywords all break down. 
+   I removed the former. As for the latter, I had to specify the difference between JTextArea and JTextPane when use 
+   .getText() then process the String to adapt the original searching algorithm. It took me a whole afternoon to fix it
+   and fortunately, my efforts were not in vain.
+
+   Add searchMethodTest, T&DTest and WordCountTest.
+
+9. ID: ea069fc7cb9ee84b61fc76eec8444930212aad9c
+
+   Implemented an experimental function that can open files when dragging from other windows to our JTextPane.
+
+10. ID: 92d56a815bb95f6be21c76f1c5ece32f2ced7a9c
+
+    The new experimental function found that conflict to paste&copy&cut because of class TransferHandler, from now I
+    have no idea to deal with it so I add a new branch to submit.
 
 
 
