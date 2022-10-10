@@ -8,9 +8,9 @@
 
 #### 1. Contributors
 
-Member I : Zheng Wang, ID: 21012737
+Member I : Zheng Wang, ID: 21012737 (Submit README.MD)
 
-Member II : William Wu, ID: 21012743
+Member II : William Wu, ID: 21012743 (Submit the Source code)
 
 #### 2. Instructions
 
