@@ -8,9 +8,9 @@
 
 #### 1. Contributors
 
-Member I : Zheng Wang, ID: 21012737
+Member I : Zheng Wang, ID: 21012737 (Submit README.MD)
 
-Member II : William Wu, ID: 21012743
+Member II : William Wu, ID: 21012743 (Submit the Source code)
 
 #### 2. Instructions
 
@@ -132,3 +132,9 @@ Member II, William Wu
 
 
 #### 4. Interesting features and something worth mentioning
+
+1.After finishing the basic tasks, we use class TransferHandler to add a new function called "Drag and Drop". If the user drags a single file in the range of JTextPane, the file will be read the same as using open function. When the dragging action is finished, the class Dataflavour will get absolute address of the file. We use the absolute address to read the content of it. 
+
+However, we use the built-in copy&cut&paste functions in class Tookit which also call class TransferHandler which flict with "Drag and Drop". We have to build a new branch to store this change temporary.
+
+2.Our testing file contains 5 tests to evaluate open, save, search, time, and Word Count functions respectively. It all call our class notepad which extends JFrame and can pass locally. However, we meet error massage "No X11 DISPLAY variable was set" when using "mvn test" on both gitee and github CI  so I just run "mvn compile" on CI tool.
