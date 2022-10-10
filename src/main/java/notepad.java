@@ -191,10 +191,12 @@ public class notepad extends JFrame{
                 if (e.getButton() == MouseEvent.BUTTON1) {
                     if (miniFunctions.getClipboardString() == null){
                         paste.setEnabled(false);
-                    }
+                    }else paste.setEnabled(true);
                     if (input.getText().equals("")){
                         selectAll.setEnabled(false);
                         copy.setEnabled(false);
+                    }else {
+                        selectAll.setEnabled(true);
                     }
                 }
             }
@@ -280,10 +282,10 @@ public class notepad extends JFrame{
 
                     if (miniFunctions.getClipboardString() == null){
                         pasteR.setEnabled(false);
-                    }
+                    }else pasteR.setEnabled(true);
                     if (input.getText().equals("")){
                         selectAllR.setEnabled(false);
-                    }
+                    } else selectAllR.setEnabled(true);
                 }
 
 
