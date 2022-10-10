@@ -221,9 +221,11 @@ public class miniFunctions {
                                 // Get the selected files
                                 File file = choose.getSelectedFile();
                                 save_func(file);
+                                notepad.input.setText("");
+                                notepad.mainFrame.setTitle("untitled - Notepad--");
+                            }else if (result == JFileChooser.ERROR_OPTION || result == JFileChooser.CANCEL_OPTION){
+                                ;
                             }
-                            notepad.input.setText("");
-                            notepad.mainFrame.setTitle("untitled - Notepad--");
                             break;
                         case 1:
                             // No option
