@@ -55,6 +55,9 @@ public class Export extends JFrame {
                 if (text.charAt(i) == '\n' || text.charAt(i) == '\r' || i + 1 == text.length()){
                     // If this is the end of the document
                     if(i + 1 == text.length()){ // last one
+                        if (text.charAt(i) != '\n' || text.charAt(i) != '\r'){
+                            temp += text.charAt(i);
+                        }
                         liness.add(temp);
                         break;
                     }else
@@ -72,7 +75,13 @@ public class Export extends JFrame {
                             temp = "";
                             liness.add(temp);
                         }
-                        if (i + 1 == text.length()) break;
+                        if (i == text.length() - 1) {
+                            if (text.charAt(i) != '\r' && text.charAt(i) != '\n'){
+                                temp += text.charAt(i);
+                                liness.add(temp);
+                            }
+                            break;
+                        }
                         else {
                             //if (count > 0) i++;
                             i = i - 1;
@@ -146,5 +155,3 @@ public class Export extends JFrame {
     }
 
 }
-
-
