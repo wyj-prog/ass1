@@ -1,6 +1,7 @@
 
 
 import java.io.*;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -35,9 +36,9 @@ public class Export extends JFrame {
             doc.addPage(page);
             PDPageContentStream contentStream = new PDPageContentStream(doc, page);
 
-            PDFont pdfFont = PDType0Font.load(doc, new File("c:/windows/fonts/times.ttf"));
+            //PDFont pdfFont = PDType0Font.load(doc, new File("c:/windows/fonts/times.ttf"));
             // If the above font does not cover the characters you typed, you can choose the one below.
-            //PDFont pdfFont = PDType1Font.TIMES_ROMAN;
+            PDFont pdfFont = PDType1Font.TIMES_ROMAN;
             //float fontSize = 9;
             float leading = 1.5f * fontSize;
 
@@ -51,7 +52,7 @@ public class Export extends JFrame {
             List<String> liness = new ArrayList<String>();
             String temp = "";
             for (int i = 0; i < text.length(); i++){
-                if (text.charAt(i) == '\n' || text.charAt(i) == '\r'){
+                if (text.charAt(i) == '\n' || text.charAt(i) == '\r' || i + 1 == text.length()){
                     // If this is the end of the document
                     if(i + 1 == text.length()){ // last one
                         liness.add(temp);
@@ -138,7 +139,7 @@ public class Export extends JFrame {
     }
 
     public static void callExport() throws IOException{
-        InputStream inputStream = new FileInputStream(new File("YAML//export.yaml"));
+        InputStream inputStream = Files.newInputStream(new File("YAML//export.yaml").toPath());
         Yaml yaml = new Yaml();
         Export newexport = yaml.load(inputStream);
         System.out.println(newexport);
