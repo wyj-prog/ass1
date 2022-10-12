@@ -15,6 +15,7 @@ stages:
         mavenVersion: 3.3.9
         # 构建命令
         commands:
+          - apt-get install xvfb
           - xvfb-run --server-args="-screen 0 1024x768x24" make test
           - mvn compile
         #   - mvn -B clean package -Dmaven.test.skip=true
