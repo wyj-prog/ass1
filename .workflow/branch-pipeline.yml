@@ -15,7 +15,8 @@ stages:
         mavenVersion: 3.3.9
         # 构建命令
         commands:
-          - yum install xorg-x11-server-Xvfb
+          - yum install xorg-x11-server-Xvfb -y
+          - y
           - mvn clean test
           - mvn compile
         #   - mvn -B clean package -Dmaven.test.skip=true
